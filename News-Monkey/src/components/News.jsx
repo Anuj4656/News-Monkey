@@ -2,29 +2,332 @@ import React, { Component } from "react";
 import NewsItem from "./NewsItem";
 
 export class News extends Component {
+  articles = [
+    {
+      source: {
+        id: null,
+        name: "Hollywood Reporter",
+      },
+      author: "Kimberly Nordyke",
+      title:
+        "Aubrey Plaza and Christopher Abbott Are Parents to a Baby Daughter - The Hollywood Reporter",
+      description: "This marks the first child for the couple.",
+      url: "http://www.hollywoodreporter.com/lifestyle/lifestyle-news/aubrey-plaza-christopher-abbott-baby-girl-1236669891/",
+      urlToImage:
+        "https://www.hollywoodreporter.com/wp-content/uploads/2026/06/Aubrey-Plaza-Chris-Abbott-Tonys-Main-2026.jpg?w=1296&h=730&crop=1",
+      publishedAt: "2026-08-10T04:15:02Z",
+      content:
+        "Aubrey Plaza and Christopher Abbott have become first-time parents.\r\nThe couple reportedly welcomed a baby daughter in late July, according to reports. TMZ posted photos of the actress carrying a bab… [+927 chars]",
+    },
+    {
+      source: {
+        id: "the-wall-street-journal",
+        name: "The Wall Street Journal",
+      },
+      author: "WSJ",
+      title:
+        "U.A.E.’s Adnoc Gas to Invest More Than $8 Billion in Expansion Push - WSJ",
+      description: null,
+      url: "https://www.wsj.com/business/energy-oil/u-a-e-s-adnoc-gas-to-invest-more-than-8-billion-in-expansion-push-cceb572d",
+      urlToImage: null,
+      publishedAt: "2026-08-10T03:45:00Z",
+      content: null,
+    },
+    {
+      source: {
+        id: null,
+        name: "KSL.com",
+      },
+      author: "Jake Coyle, Associated Press",
+      title:
+        "'Spider-Man: Brand New Day' keeps record pace, 'The Odyssey' sets new high for Nolan - KSL News",
+      description:
+        '"Spider-Man: Brand New Day" continued its blistering pace in theaters, collecting $144.5 million domestically over its second weekend, according to studio estimates Sunday.',
+      url: "https://www.ksl.com/article/51607748/spider-man-brand-new-day-keeps-record-pace-the-odyssey-sets-new-high-for-nolan",
+      urlToImage:
+        "https://img.ksl.com/slc/3197/319717/31971768.jpg?filter=kslv2/responsive_story_lg",
+      publishedAt: "2026-08-10T02:25:41Z",
+      content:
+        'NEW YORK "Spider-Man: Brand New Day" continued its blistering pace in theaters, collecting $144.5 million domestically over its second weekend, according to studio estimates Sunday, while Christopher… [+3971 chars]',
+    },
+    {
+      source: {
+        id: null,
+        name: "Variety",
+      },
+      author: "Jennifer Maas",
+      title:
+        "‘House of the Dragon’ Star Phia Saban on Helaena’s Finale ‘Tragedy’ and Changes to Maelor Storyline - Variety",
+      description:
+        '"House of the Dragon" lost its moral center with the death of Helaena Targaryen (Phia Saban) on Sunday\'s Season 3 finale.',
+      url: "https://variety.com/2026/tv/news/helaena-death-explained-house-of-the-dragon-finale-death-explained-phia-saban-1236830274/",
+      urlToImage:
+        "https://variety.com/wp-content/uploads/2026/08/House-of-the-Dragon-4.jpg?w=1000&h=563&crop=1",
+      publishedAt: "2026-08-10T02:10:00Z",
+      content:
+        "SPOILER ALERT: This article contains spoilers for the Season 3 finale of “House of the Dragon,” now streaming on HBO Max.\r\nHBO’s “House of the Dragon” lost its moral center with the death of Helaena … [+5470 chars]",
+    },
+    {
+      source: {
+        id: null,
+        name: "BBC News",
+      },
+      author: null,
+      title:
+        "Typhoon Dolphin: China evacuates more than 1 million people as massive storm arrives - BBC",
+      description:
+        "Typhoon Dolphin has made landfall, bringing strong winds and heavy rain across eastern China including Shanghai.",
+      url: "https://www.bbc.com/news/articles/cx2rgzyplg2o",
+      urlToImage:
+        "https://ichef.bbci.co.uk/news/1024/branded_news/4ce6/live/e2285ea0-945a-11f1-80f4-1baf774a4468.jpg",
+      publishedAt: "2026-08-10T01:44:05Z",
+      content:
+        "Elsewhere in the province, Wenzhou authorities have relocated some 900,000 residents and opened more than 1,000 emergency shelters, while about 390,000 people have been evacuated from their homes in … [+19 chars]",
+    },
+    {
+      source: {
+        id: "the-washington-post",
+        name: "The Washington Post",
+      },
+      author: "Lior Soroka, Sammy Westfall",
+      title:
+        "Netanyahu rejects Trump-backed Gaza plan for Hamas disarmament, Israeli withdrawal - The Washington Post",
+      description:
+        "“Israel does not accept the 15-point document,” Prime Minister Benjamin Netanyahu said. The U.S. president had touted the Board of Peace plan as a step toward a lasting settlement.",
+      url: "https://www.washingtonpost.com/world/2026/08/09/netanyahu-rejects-trump-backed-plan-hamas-disarm-israel-leave-gaza/",
+      urlToImage:
+        "https://www.washingtonpost.com/wp-apps/imrs.php?src=https://cloudfront-us-east-1.images.arcpublishing.com/wapo/7K5DDYIV44Y3MMVBBD4GDYL2J4.JPG&w=1440",
+      publishedAt: "2026-08-10T01:26:40Z",
+      content:
+        "TEL AVIV Israeli Prime Minister Benjamin Netanyahu rejected a U.S.-backed plan Sunday for Hamas to lay down its weapons in Gaza in exchange for Israeli withdrawal from the territory a proposal Presid… [+83 chars]",
+    },
+    {
+      source: {
+        id: "associated-press",
+        name: "Associated Press",
+      },
+      author: "Jamie Stengle, Wufei Yu",
+      title:
+        "Wildfires burn across western US and Canada as residents are evacuated - AP News",
+      description:
+        "Wildfires are burning across the western U.S. and Canada, leaving some residents keeping a wary eye out for possible evacuation orders. Meanwhile others who were already forced to flee their homes are waiting to see what will be left of their places upon thei…",
+      url: "https://apnews.com/article/western-wildfires-canada-us-946f5599db59517cb88fd3f0df9f5c46",
+      urlToImage:
+        "https://dims.apnews.com/dims4/default/a25e114/2147483647/strip/true/crop/6500x4331+0+6/resize/980x653!/quality/90/?url=https%3A%2F%2Fassets.apnews.com%2F2b%2F79%2Faa87fec62fe7e78f5f7f88825f91%2F81e8661c9df94c34a69bdcc74a6a6587",
+      publishedAt: "2026-08-10T01:05:00Z",
+      content:
+        "Wildfires burning across the western U.S. and Canada on Sunday left some residents keeping a wary eye out for possible evacuation orders while others already forced to flee their homes waited to see … [+4740 chars]",
+    },
+    {
+      source: {
+        id: "nbc-news",
+        name: "NBC News",
+      },
+      author: "The Associated Press",
+      title:
+        "Wildfires burning in British Columbia force 20,000 to evacuate - NBC News",
+      description:
+        "A state of emergency was declared Saturday as more than 100 wildfires burned across the province, nearly half of them out of control.",
+      url: "https://www.nbcnews.com/weather/wildfires/wildfires-burning-british-columbia-force-20000-evacuate-rcna591643",
+      urlToImage:
+        "https://media-cldnry.s-nbcnews.com/image/upload/t_nbcnews-fp-1200-630,f_auto,q_auto:best/rockcms/2026-08/260809-Bald-Range-Fire-aa-825-1366a4.jpg",
+      publishedAt: "2026-08-10T00:51:00Z",
+      content:
+        "VANCOUVER, British Columbia British Columbia declared a state of emergency Saturday after a fast-moving wildfire destroyed homes and forced more than 20,000 people to flee communities along Okanagan … [+3098 chars]",
+    },
+    {
+      source: {
+        id: null,
+        name: "NBCSports.com",
+      },
+      author: "Syd Pierre",
+      title:
+        "Sue Bird, Cheryl Miller give insight on narratives surrounding WNBA, Sophie Cunningham conversation - NBC Sports",
+      description:
+        "WNBA Hall of Famers and NBC Sports analysts Sue Bird and Cheryl Miller provided their takes on the call and the rise of certain narratives.",
+      url: "https://www.nbcsports.com/wnba/news/sue-bird-cheryl-miller-give-insight-on-narratives-surrounding-wnba-sophie-cunningham-conversation",
+      urlToImage:
+        "https://nbcsports.brightspotcdn.com/dims4/default/40f1c61/2147483647/strip/true/crop/1920x1080+0+0/resize/1440x810!/quality/90/?url=https%3A%2F%2Fhdliveextra-a.akamaihd.net%2FHD%2Fimage_sports%2FNBCU_Sports_Group_-_nbcsports%2F9%2F686%2Fnbc_wnba_cunningham_260809.jpg",
+      publishedAt: "2026-08-10T00:33:59Z",
+      content:
+        "During Saturday nights game between the Chicago Sky and Indiana Fever, Skys DiJonai Carrington was ejected after being called for a Flagrant 2 foul on Fevers Sophie Cunningham.\r\nThe call generated pl… [+1942 chars]",
+    },
+    {
+      source: {
+        id: null,
+        name: "Forbes",
+      },
+      author: "Ewan Spence",
+      title:
+        "iPhone 18 Pro Release Date: Demand Drives September Launch - Forbes",
+      description:
+        "Apple's September launch of the iPhone 18 Pro family is more than tradition. It is a key part of the entire ecosystem, all built around this fixed date in the calendar.",
+      url: "https://www.forbes.com/sites/ewanspence/2026/08/09/apple-iphone-18-pro-september-launch-window-supply-chain-analysis/",
+      urlToImage:
+        "https://imageio.forbes.com/specials-images/imageserve/6a7680a1adf698bf2e785174/0x0.jpg?format=jpg&height=900&width=1600&fit=bounds",
+      publishedAt: "2026-08-10T00:27:03Z",
+      content:
+        "Update, Sunday August 9: This article has been updated with details of the iPhone 18 Pro launch and release dates.\r\nThe latest iPhone phones are displayed at the Fifth Avenue Apple Store (Photo by Mi… [+6707 chars]",
+    },
+    {
+      source: {
+        id: null,
+        name: "Windy City Gridiron",
+      },
+      author: "Lester A. Wiltfong Jr.",
+      title:
+        "Bears Camp Report: New starting safety, another injury, Ruben Hyppolite shines, and more! - Windy City Gridiron",
+      description:
+        "Check out a recap of Sunday’s Chicago Bears training camp practice from @wiltfongjr.",
+      url: "https://www.windycitygridiron.com/chicago-bears-training-camp/120374/bears-camp-report-new-starting-safety-another-injury-ruben-hyppolite-shines-and-more",
+      urlToImage:
+        "https://platform.windycitygridiron.com/wp-content/uploads/sites/180/2026/08/reuters-tagreuters.com2026newsml_MT1USATODAY291776231713283286.jpg?quality=90&strip=all&crop=0%2C7.35848227547%2C100%2C78.524215886627&w=1200",
+      publishedAt: "2026-08-09T22:50:24Z",
+      content:
+        "Bad weather in the area forced the Chicago Bears inside the Walter Payton Center for practice today, so, for the second time this year, fans were sent home. My advice for fans traveling a long way fo… [+3255 chars]",
+    },
+    {
+      source: {
+        id: null,
+        name: "CNBC",
+      },
+      author: "Justina Lee, Alex Harring",
+      title:
+        "S&P 500 futures slip as traders watch for Strait of Hormuz deal, inflation data: Live updates - CNBC",
+      description:
+        "The three major indexes are coming off their best weeks since April, and the S&P 500 finished Friday at an all-time closing high.",
+      url: "https://www.cnbc.com/2026/08/09/stock-market-today-live-updates.html",
+      urlToImage:
+        "https://image.cnbcfm.com/api/v1/image/108346030-1786028135973-Traders-Photo-20260805-KK-PRESS-004.jpg?v=1786028197&w=1920&h=1080",
+      publishedAt: "2026-08-09T22:14:52Z",
+      content:
+        "S&amp;P 500 futures edged lower on Sunday night amid growing doubts that the U.S. and Iran will soon strike a deal to open the Strait of Hormuz.\r\nFutures tied to the broad index slipped about 0.2%, w… [+2079 chars]",
+    },
+    {
+      source: {
+        id: null,
+        name: "Yahoo Entertainment",
+      },
+      author: "Ryan Young",
+      title:
+        "Wyndham Championship purse, payouts: Michael Brennan runs away from the field to secure FedExCup Playoffs spot - Yahoo Sports",
+      description:
+        "Michael Brennan picked up his second career PGA Tour win on Sunday afternoon in North Carolina.",
+      url: "https://sports.yahoo.com/golf/breaking-news/article/wyndham-championship-purse-payouts-michael-brennan-runs-away-from-the-field-to-secure-fedexcup-playoffs-spot-220116833.html",
+      urlToImage:
+        "https://s.yimg.com/lo/mysterio/api/2c1e86f4e76c957fc032e6356e447562d4375fe22d37575e3f5521e7b0d607cf/lightyear_networkapi/resizefill_w1200%3Bquality_80%3Bformat_webp/https%3A%2F%2Fd29szjachogqwa.cloudfront.net%2Fimages%2F2026-08%2F272d857a-0341-47d7-925b-36485ac90a84",
+      publishedAt: "2026-08-09T22:14:10Z",
+      content:
+        "Michael Brennan's first win of the season came at the perfect time.\r\nBrennan ran away from the field down the stretch on Sunday at Sedgefield Country Club in North Carolina to claim the season-ending… [+3885 chars]",
+    },
+    {
+      source: {
+        id: null,
+        name: "PBS",
+      },
+      author: null,
+      title:
+        "How to spot the Perseid meteor shower, a summer light show that promises to dazzle - PBS",
+      description:
+        "The meteor shower's peak Wednesday night into Thursday morning coincides with a total solar eclipse across Spain, Iceland and Greenland and a six-planet parade — though the best time to view the fireballs will come after totality.",
+      url: "https://www.pbs.org/newshour/science/how-to-spot-the-perseid-meteor-shower-a-summer-light-show-that-promises-to-dazzle",
+      urlToImage:
+        "https://d3i6fh83elv35t.cloudfront.net/static/2026/08/2024-08-12T050910Z_298061794_RC22E9ADT0Q0_RTRMADP_3_METEOR-SHOWER-SPAIN-1024x683.jpg",
+      publishedAt: "2026-08-09T22:05:27Z",
+      content:
+        "NEW YORK (AP) The Perseid summer light show is back and viewing conditions are especially promising for the Northern Hemisphere.\r\nThe meteor shower's peak Wednesday night into Thursday morning coinci… [+2911 chars]",
+    },
+    {
+      source: {
+        id: "al-jazeera-english",
+        name: "Al Jazeera English",
+      },
+      author: "Al Jazeera Staff",
+      title:
+        "Alleged cartel boss Daniel Kinahan charged in Ireland amid heavy security - Al Jazeera",
+      description:
+        "Daniel Kinahan is the latest alleged member of the multinational organised crime group to be charged in Dublin.",
+      url: "https://www.aljazeera.com/news/2026/8/9/uae-extradites-alleged-international-crime-boss-daniel-kinahan-to-ireland",
+      urlToImage:
+        "https://www.aljazeera.com/wp-content/uploads/2026/08/Daniel-Joseph-Kinahan-1-3-1786288764.jpg?resize=1200%2C630",
+      publishedAt: "2026-08-09T21:50:40Z",
+      content:
+        "Alleged Irish cartel boss Daniel Kinahan has been charged in Dublin with directing a criminal organisation after the 49-year-old accused of running one of the worlds biggest drug and weapon smuggling… [+4360 chars]",
+    },
+    {
+      source: {
+        id: "bloomberg",
+        name: "Bloomberg",
+      },
+      author: null,
+      title:
+        "China Unleashes $28 Trillion Capital Markets to Challenge US in AI - Bloomberg.com",
+      description:
+        "The strategy marks a break from Beijing’s reliance on subsidies and state funding.",
+      url: "https://www.bloomberg.com/news/features/2026-08-09/china-bets-on-ai-stocks-as-it-races-against-us-for-chip-tech-dominance",
+      urlToImage:
+        "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iWPWrATa6hVs/v1/1200x800.jpg",
+      publishedAt: "2026-08-09T21:00:19Z",
+      content:
+        "Even by the frothy standards of the AI era, CXMT Corp.s trading debut in Shanghai last month was extraordinary.\r\nWithin a few hours, the memory chip maker seen as Beijings best hope of reducing relia… [+218 chars]",
+    },
+    {
+      source: {
+        id: null,
+        name: "KXLY Spokane",
+      },
+      author: "Ian Cull",
+      title: "Thousands of evacuees can now return home - KXLY.com",
+      description:
+        "SPOKANE COUNTY, Wash. -- Sheriff John Nowels announced after thousands of people were evacuated from their home for the ninth day due to the Spokane area fires, that many of",
+      url: "https://www.kxly.com/news/firewatch/thousands-of-evacuees-can-now-return-home/article_d9ce5c43-9ab7-425b-9ec2-df2cfa7ae89f.html",
+      urlToImage:
+        "https://bloximages.newyork1.vip.townnews.com/kxly.com/content/tncms/assets/v3/editorial/7/51/751645fc-f204-4fbb-a34e-45cbcb63ca14/6a78f501a3811.image.png?crop=1191%2C625%2C0%2C22",
+      publishedAt: "2026-08-09T20:48:44Z",
+      content:
+        "SPOKANE COUNTY, Wash. -- Sheriff John Nowels announced after thousands of people were evacuated from their home for the ninth day due to the Spokane area fires, that many of them can return home toda… [+199 chars]",
+    },
+    {
+      source: {
+        id: null,
+        name: "AL.com",
+      },
+      author: "AL.com",
+      title:
+        "Woman, infant dead after boat capsizes in New York Harbor: ‘Deeply saddened by the tragic loss’ - AL.com",
+      description: null,
+      url: "https://www.al.com/news/2026/08/woman-infant-dead-after-boat-capsizes-in-new-york-harbor-deeply-saddened-by-the-tragic-loss.html",
+      urlToImage: null,
+      publishedAt: "2026-08-09T20:15:00Z",
+      content: null,
+    },
+  ];
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      articles: this.articles,
+      loading: false,
+    };
+  }
+
   render() {
     return (
       <div className="container my-4">
         <h2>News Monkey - Top Headlines</h2>
         <div className="row">
-          <div className="col-md-4">
-            <NewsItem
-              title="Breaking News"
-              desc="A breif description of the news around you only on News Monkey"
-            />
-          </div>
-          <div className="col-md-4">
-            <NewsItem
-              title="Breaking News"
-              desc="A breif description of the news around you only on News Monkey"
-            />
-          </div>
-          <div className="col-md-4">
-            <NewsItem
-              title="Breaking News"
-              desc="A breif description of the news around you only on News Monkey"
-            />
-          </div>
+          {this.articles.map((e) => {
+            return (
+              <div className="col-md-4" key={e.url}>
+                <NewsItem
+                  title={e.title}
+                  description={e.description}
+                  imageUrl={e.urlToImage}
+                  url={e.url}
+                />
+              </div>
+            );
+          })}
         </div>
       </div>
     );
