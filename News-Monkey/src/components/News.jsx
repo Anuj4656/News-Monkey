@@ -11,6 +11,8 @@ export class News extends Component {
   }
 
   async componentDidMount() {
+    console.log("API KEY EXISTS:", !!import.meta.env.VITE_NEWS_API_KEY);
+
     let url = `https://newsapi.org/v2/top-headlines?country=us&apiKey=${import.meta.env.VITE_NEWS_API_KEY}`;
 
     let data = await fetch(url);
