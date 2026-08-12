@@ -3,13 +3,18 @@ import NewsItem from "./NewsItem";
 import Spinner from "./Spinner";
 
 export class News extends Component {
+  static defaultProps = {
+    country: "us",
+    pageSize: 8,
+    category: "general",
+  };
+
   constructor(props) {
     super(props);
     this.state = {
       articles: [],
       loading: false,
       page: 1,
-      pageSize: 12,
       totalResults: 0,
     };
   }
@@ -21,7 +26,7 @@ export class News extends Component {
   fetchNews = async (page) => {
     this.setState({ loading: true });
 
-    let url = `https://newsapi.org/v2/top-headlines?country=us&page=${page}&pageSize=${this.state.pageSize}&apiKey=${import.meta.env.VITE_NEWS_API_KEY}`;
+    let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&page=${page}&pageSize=${this.props.pageSize}&category=${this.props.category}&apiKey=${import.meta.env.VITE_NEWS_API_KEY}`;
 
     let data = await fetch(url);
     let parsedData = await data.json();
@@ -41,19 +46,21 @@ export class News extends Component {
   };
 
   handleNext = () => {
-    const totalPages = Math.ceil(this.state.totalResults / this.state.pageSize);
+    const totalPages = Math.ceil(this.state.totalResults / this.props.pageSize);
     if (this.state.page < totalPages) {
       this.fetchNews(this.state.page + 1);
     }
   };
 
   render() {
-    const { page, pageSize, totalResults } = this.state;
-    const totalPages = Math.ceil(totalResults / pageSize);
+    const { page, totalResults } = this.state;
+    const totalPages = Math.ceil(totalResults / this.props.pageSize);
 
     return (
       <div className="container my-4">
-        <h2 className="my-2 text-center">News Monkey - Top Headlines</h2>
+        <h2 className="text-center" style={{ margin: "40px" }}>
+          News Monkey - Top Headlines
+        </h2>
         <hr />
         {this.state.loading && <Spinner />}
         <div className="row">
