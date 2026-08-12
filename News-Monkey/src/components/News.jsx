@@ -59,7 +59,9 @@ export class News extends Component {
     return (
       <div className="container my-4">
         <h2 className="text-center" style={{ margin: "40px" }}>
-          News Monkey - Top Headlines
+          News Monkey -{" "}
+          {this.props.category.charAt(0).toUpperCase() +
+            this.props.category.slice(1)}
         </h2>
         <hr />
         {this.state.loading && <Spinner />}

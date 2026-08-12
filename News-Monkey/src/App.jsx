@@ -4,6 +4,7 @@ import React, { Component } from "react";
 import Navbar from "./components/Navbar";
 import News from "./components/News";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import AboutUs from "./components/AboutUs";
 
 export default class App extends Component {
   render() {
@@ -48,6 +49,7 @@ export default class App extends Component {
                 <News key="technology" country="us" category="technology" />
               }
             />
+            <Route path="/about" element={<AboutUs />} />
           </Routes>
         </Router>
       </>

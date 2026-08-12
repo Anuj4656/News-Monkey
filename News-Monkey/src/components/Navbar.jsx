@@ -7,7 +7,7 @@ export class Navbar extends Component {
       <>
         <nav className="navbar navbar-expand-lg bg-body-tertiary">
           <div className="container-fluid">
-            <Link className="navbar-brand" to="#">
+            <Link className="navbar-brand" to="/">
               News Monkey
             </Link>
             <button
@@ -27,47 +27,42 @@ export class Navbar extends Component {
             >
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item">
-                  <Link className="nav-link active" aria-current="page" to="/">
-                    Top-Headlines
-                  </Link>
-                </li>
-                <li className="nav-item">
                   <Link className="nav-link" to="/">
-                    general
+                    General
                   </Link>
                 </li>
                 <li className="nav-item">
                   <Link className="nav-link" to="/entertainment">
-                    entertainment
+                    Entertainment
                   </Link>
                 </li>
                 <li className="nav-item">
                   <Link className="nav-link" to="/business">
-                    business
+                    Business
                   </Link>
                 </li>
                 <li className="nav-item">
                   <Link className="nav-link" to="/health">
-                    health
+                    Health
                   </Link>
                 </li>
                 <li className="nav-item">
                   <Link className="nav-link" to="/science">
-                    science
+                    Science
                   </Link>
                 </li>
                 <li className="nav-item">
                   <Link className="nav-link" to="/sports">
-                    sports
+                    Sports
                   </Link>
                 </li>
                 <li className="nav-item">
                   <Link className="nav-link" to="/technology">
-                    technology
+                    Technology
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="#">
+                  <Link className="nav-link" to="/about">
                     About us
                   </Link>
                 </li>
