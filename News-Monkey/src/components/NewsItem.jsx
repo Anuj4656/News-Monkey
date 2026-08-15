@@ -1,37 +1,36 @@
-import React, { Component } from "react";
+import React from "react";
 
-export class NewsItem extends Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-    const { title, description, imageUrl, url, author, publishedAt, source } =
-      this.props;
-
-    return (
-      <div className="card my-5">
-        <span
-          className="position-absolute top-0 translate-middle badge rounded-pill bg-danger"
-          style={{ left: "90%", zIndex: "1" }}
-        >
-          {source}
-        </span>
-        <img src={imageUrl} className="card-img-top" alt="..." />
-        <div className="card-body">
-          <h5 className="card-title">{title}...</h5>
-          <p className="card-text">{description}...</p>
-          <p className="card-text">
-            <small className="text-body-secondary">{`Published by ${author} at ${publishedAt}`}</small>
-          </p>
-          <a href={url} target="_blank" className="btn btn-sm btn-primary">
-            Read more
-          </a>
-        </div>
+const NewsItem = ({
+  title,
+  description,
+  imageUrl,
+  url,
+  author,
+  publishedAt,
+  source,
+}) => {
+  return (
+    <div className="card my-5">
+      <span
+        className="position-absolute top-0 translate-middle badge rounded-pill bg-danger"
+        style={{ left: "90%", zIndex: "1" }}
+      >
+        {source}
+      </span>
+      <img src={imageUrl} className="card-img-top" alt="..." />
+      <div className="card-body">
+        <h5 className="card-title">{title}...</h5>
+        <p className="card-text">{description}...</p>
+        <p className="card-text">
+          <small className="text-body-secondary">{`Published by ${author} at ${publishedAt}`}</small>
+        </p>
+        <a href={url} target="_blank" className="btn btn-sm btn-primary">
+          Read more
+        </a>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 NewsItem.defaultProps = {
   title: "No Title Available",
